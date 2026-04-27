@@ -1,0 +1,12 @@
+name: wa_health_dashboard
+title: wa_health_dashboard
+username: ghostmeadow
+account: ghostmeadow
+server: connect.posit.cloud
+hostUrl: https://api.connect.posit.cloud/v1
+appId: 019dcc52-67be-dae2-461d-10a0e000f695
+bundleId:
+url: https://connect.posit.cloud/ghostmeadow/content/019dcc52-67be-dae2-461d-10a0e000f695
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
