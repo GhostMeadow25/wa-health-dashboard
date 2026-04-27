@@ -2,6 +2,8 @@
 
 custom_css <- tags$head(tags$style(HTML("
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+  html, body { overflow: hidden !important; }
+
   body, .content-wrapper, .main-footer { font-family: 'Poppins', sans-serif !important; }
 
   /* ── Header: solid color, no visible text ─────────────────────────────── */
@@ -30,12 +32,12 @@ custom_css <- tags$head(tags$style(HTML("
   /* ── Page header ──────────────────────────────────────────────────────── */
   .page-header {
     border-bottom: 2px solid #1B6CA8;
-    margin-bottom: 18px;
-    padding-bottom: 10px;
+    margin-bottom: 6px;
+    padding-bottom: 5px;
   }
   .page-header h2 {
     color: #1B6CA8;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 700;
     margin-bottom: 2px;
   }
@@ -45,8 +47,8 @@ custom_css <- tags$head(tags$style(HTML("
   .panel-box {
     background: #ffffff;
     border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 10px 20px;
+    margin-bottom: 8px;
     box-shadow: 0 3px 14px rgba(27,108,168,0.11);
   }
 
@@ -73,12 +75,12 @@ custom_css <- tags$head(tags$style(HTML("
     background: #ffffff;
     border-radius: 10px;
     border-left: 5px solid #1B6CA8;
-    padding: 18px 24px;
+    padding: 14px 22px;
     box-shadow: 0 3px 14px rgba(27,108,168,0.11);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 110px;
+    min-height: 72px;
   }
   .stat-card .stat-value {
     font-size: 42px;
@@ -128,7 +130,7 @@ custom_css <- tags$head(tags$style(HTML("
 
 dashboard_body_content <- function() {
   div(
-    style = "padding: 15px;",
+    style = "padding: 0 15px;",
     
     # ── Page Header ──────────────────────────────────────────────────────────
     div(class = "page-header",
@@ -154,7 +156,7 @@ dashboard_body_content <- function() {
              div(class = "panel-box",
                  div(class = "section-title", icon("map-marker"), " County Map"),
                  div(class = "plot-container",
-                     withSpinner(leafletOutput("map_plot", height = "430px"),
+                     withSpinner(leafletOutput("map_plot", height = "calc(100vh - 435px)"),
                                  type = 6, color = "#1B6CA8", size = 0.8)),
                  div(class = "citation-text",
                      "Uninsured rate among children under 19.
@@ -164,7 +166,7 @@ dashboard_body_content <- function() {
              div(class = "panel-box",
                  div(class = "section-title", icon("bar-chart"), " Counties by Uninsured Rate"),
                  div(class = "plot-container",
-                     withSpinner(plotlyOutput("bar_chart", height = "430px"),
+                     withSpinner(plotlyOutput("bar_chart", height = "calc(100vh - 435px)"),
                                  type = 6, color = "#1B6CA8", size = 0.8)),
                  div(class = "citation-text",
                      "Red bars = above state average. Green bars = below state average.
