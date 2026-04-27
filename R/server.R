@@ -229,12 +229,17 @@ setup_server <- function(input, output, session) {
           "Children uninsured: ", NumDisplay,
           sel_label
         ),
+        textposition = "none",
         hoverinfo = "text"
       ) %>%
         layout(
           xaxis = list(title = "Uninsured Rate (%)", ticksuffix = "%",
                        gridcolor = "#e8f0f7"),
-          yaxis = list(title = "", tickfont = list(size = 9), automargin = TRUE),
+          yaxis = list(title = "", automargin = TRUE,
+                       tickfont = list(size = 9),
+                       tickmode = "array",
+                       tickvals = cd$ShortName,
+                       ticktext = paste0(cd$ShortName, "   ")),
           shapes = list(list(
             type = "line", x0 = state_pp, x1 = state_pp, y0 = 0, y1 = 1,
             yref = "paper",
@@ -248,7 +253,7 @@ setup_server <- function(input, output, session) {
             xanchor = "left", yanchor = "bottom",
             bgcolor = "rgba(255,255,255,0.7)"
           )),
-          margin       = list(l = 10, r = 20, t = 10, b = 40),
+          margin       = list(l = 10, r = 20, t = 30, b = 40),
           hoverlabel   = list(bgcolor = "white",
                               font = list(size = 11, family = "Poppins, sans-serif")),
           plot_bgcolor  = "#f5f9fc",
